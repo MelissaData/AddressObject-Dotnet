@@ -26,7 +26,6 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
-[Bb]uild/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -343,14 +342,17 @@ healthchecksdb
 # Data
 Data/
 
-#Wrapper
-mdPhoneNET.dll
+*.dll
+/MelissaDataAddressObjectWindowsNETExample/mdAddr.dll.hash
+/MelissaDataAddressObjectWindowsNETExample/mdAddrNET.dll.hash
+/MelissaDataAddressObjectWindowsNETExample/.editorconfig
+/MelissaDataAddressObjectWindowsNETExample/MelissaDataAddressObjectWindowsNETExample.deps.json
+/MelissaDataAddressObjectWindowsNETExample/MelissaDataAddressObjectWindowsNETExample.exe
+/MelissaDataAddressObjectWindowsNETExample/MelissaDataAddressObjectWindowsNETExample.runtimeconfig.json
+/MelissaDataAddressObjectWindowsNETExample/MelissaDataAddressObjectWindowsNETExample.xml
+/MelissaUpdater
+/MelissaDataAddressObjectWindowsNETExample/Build
 
-#.exe files
-*.exe
-
-# Build
-[Bb]uild/
 
 # MelissaUpdater
 MelissaUpdater/

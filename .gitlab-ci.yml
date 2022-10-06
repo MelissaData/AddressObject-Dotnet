@@ -6,8 +6,7 @@ buildJob:
   image: mcr.microsoft.com/dotnet/core/sdk:3.1
   
   script:
-    - curl -L -o "MelissaDataAddressObjectWindowsNETExample/mdAddrNET.dll" "https://releases.melissadata.net/Download/Interface/WINDOWS/NET/ANY/2020.09/mdAddrNET.dll/?ID=$K8S_SECRET_LICENSE_1**$K8S_SECRET_LICENSE_2**$K8S_SECRET_LICENSE_3**"
-    - dotnet publish -c Release -o Artifacts MelissaDataAddressObjectWindowsNETExample/MelissaDataAddressObjectWindowsNETExample.csproj
+    - dotnet publish -f="netcoreapp3.1" -c Release -o Artifacts MelissaDataAddressObjectWindowsNETExample/MelissaDataAddressObjectWindowsNETExample.csproj
 
   artifacts:
     paths:

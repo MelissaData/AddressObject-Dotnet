@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFrameworks>netcoreapp3.1;net5.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
@@ -10,12 +10,6 @@
     <Compile Remove="Data\**" />
     <EmbeddedResource Remove="Data\**" />
     <None Remove="Data\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="mdAddrNET">
-      <HintPath>mdAddrNET.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>
