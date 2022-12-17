@@ -3,7 +3,7 @@ using System.IO;
 using System.Reflection;
 using MelissaData;
 
-namespace MelissaDataAddressObjectWindowsNETExample
+namespace MelissaDataAddressObjectWindowsNETSample
 {
   class Program
   {
@@ -66,7 +66,7 @@ namespace MelissaDataAddressObjectWindowsNETExample
 
     static void RunAsConsole(string license, string testAddress, string testCity, string testState, string testZip, string dataPath)
     {
-      Console.WriteLine("\n\n===== WELCOME TO MELISSA DATA ADDRESS OBJECT WINDOWS NET EXAMPLE =====\n");
+      Console.WriteLine("\n\n===== WELCOME TO MELISSA DATA ADDRESS OBJECT WINDOWS NET SAMPLE =====\n");
 
       AddressObject addressObject = new AddressObject(license, dataPath);
 
@@ -196,20 +196,7 @@ namespace MelissaDataAddressObjectWindowsNETExample
       mdAddressObj.SetPathToSuiteFinderDataFiles(dataFilePath);
       mdAddressObj.SetPathToSuiteLinkDataFiles(dataFilePath);
 
-      /**
-       * DatabaseDate is the date of your data files. The data files should be one month behind the DQT release.  
-       * If you are using the 2020-10-15 release, the DatabaseDate should be 2020-09-15.
-       * 
-       * If you see a different date either download the new data files or use the Melissa Updater program to
-       * update your data files. 
-       * 
-       * If 1970-00-00 is the DatabaseDate, the Address Object was unable to reach the data files.
-       * 
-       * ---------------------------READING THIS MAY SAVE YOU HOURS OF YOUR TIME-------------------------------
-       * If the DatabaseDate is not consistent with the data files and your are having issues getting results
-       * using mdAddr, it is likely a license string issue and yours may have expired.
-       */
-
+      // If you see a different date than expected, check your license string and either download the new data files or use the Melissa Updater program to update your data files.  
       mdAddr.ProgramStatus pStatus = mdAddressObj.InitializeDataFiles();
 
       if (pStatus != mdAddr.ProgramStatus.ErrorNone)
@@ -223,7 +210,7 @@ namespace MelissaDataAddressObjectWindowsNETExample
       Console.WriteLine($"              Expiration Date: {mdAddressObj.GetLicenseExpirationDate()}");
 
       /**
-       * This number should match with file properties of the mdAddr.dll File Version.
+       * This number should match with file properties of the Melissa Data Object binary file.
        * If TEST appears with the build number, there may be a license key issue.
        */
       Console.WriteLine($"               Object Version: {mdAddressObj.GetBuildNumber()}\n");
@@ -244,9 +231,10 @@ namespace MelissaDataAddressObjectWindowsNETExample
 
       // ResultsCodes explain any issues address object has with the object.
       // List of result codes for Address object
-      // http://wiki.melissadata.com/index.php?title=Result_Code_Details#Address_Object
+      // https://wiki.melissadata.com/?title=Result_Code_Details#Address_Object
     }
   }
+
   public class DataContainer
   {
     public string Address { get; set; }
