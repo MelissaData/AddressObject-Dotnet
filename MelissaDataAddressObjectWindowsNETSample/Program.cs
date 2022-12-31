@@ -66,7 +66,7 @@ namespace MelissaDataAddressObjectWindowsNETSample
 
     static void RunAsConsole(string license, string testAddress, string testCity, string testState, string testZip, string dataPath)
     {
-      Console.WriteLine("\n\n===== WELCOME TO MELISSA DATA ADDRESS OBJECT WINDOWS NET SAMPLE =====\n");
+      Console.WriteLine("\n\n===== WELCOME TO MELISSA DATA ADDRESS OBJECT WINDOWS NET SAMPLE ====\n");
 
       AddressObject addressObject = new AddressObject(license, dataPath);
 
@@ -85,24 +85,16 @@ namespace MelissaDataAddressObjectWindowsNETSample
         {
           Console.WriteLine("\nFill in each value to see the Address Object results");
 
-          Console.WriteLine("Address:");
-          Console.CursorTop -= 1;
-          Console.CursorLeft = 9;
+          Console.Write("Address: ");
           dataContainer.Address = Console.ReadLine();
         
-          Console.WriteLine("City:");
-          Console.CursorTop -= 1;
-          Console.CursorLeft = 6;
+          Console.Write("City: ");
           dataContainer.City = Console.ReadLine();
         
-          Console.WriteLine("State:");
-          Console.CursorTop -= 1;
-          Console.CursorLeft = 7;
+          Console.Write("State: ");
           dataContainer.State = Console.ReadLine();
         
-          Console.WriteLine("Zip:");
-          Console.CursorTop -= 1;
-          Console.CursorLeft = 5;
+          Console.Write("Zip: ");
           dataContainer.Zip = Console.ReadLine();
         }
         else
@@ -114,7 +106,7 @@ namespace MelissaDataAddressObjectWindowsNETSample
         }
 
         // Print user input
-        Console.WriteLine("\n=========================== INPUTS ===========================\n");
+        Console.WriteLine("\n============================== INPUTS ==============================\n");
         Console.WriteLine($"               Address Line 1: {dataContainer.Address}");
         Console.WriteLine($"                         City: {dataContainer.City}");
         Console.WriteLine($"                        State: {dataContainer.State}");
@@ -126,14 +118,13 @@ namespace MelissaDataAddressObjectWindowsNETSample
         // Print output
         Console.WriteLine("\n============================== OUTPUT ==============================\n");
         Console.WriteLine("\n\tAddress Object Information:");
-
-        Console.WriteLine($"\t                          MAK: {addressObject.mdAddressObj.GetMelissaAddressKey()}");
-        Console.WriteLine($"\t               Address Line 1: {addressObject.mdAddressObj.GetAddress()}");
-        Console.WriteLine($"\t               Address Line 2: {addressObject.mdAddressObj.GetAddress2()}");
-        Console.WriteLine($"\t                         City: {addressObject.mdAddressObj.GetCity()}");
-        Console.WriteLine($"\t                        State: {addressObject.mdAddressObj.GetState()}");
-        Console.WriteLine($"\t                          Zip: {addressObject.mdAddressObj.GetZip()}");
-        Console.WriteLine($"\tResult Codes: {dataContainer.ResultCodes}");
+        Console.WriteLine($"\t                     MAK: {addressObject.mdAddressObj.GetMelissaAddressKey()}");
+        Console.WriteLine($"\t          Address Line 1: {addressObject.mdAddressObj.GetAddress()}");
+        Console.WriteLine($"\t          Address Line 2: {addressObject.mdAddressObj.GetAddress2()}");
+        Console.WriteLine($"\t                    City: {addressObject.mdAddressObj.GetCity()}");
+        Console.WriteLine($"\t                   State: {addressObject.mdAddressObj.GetState()}");
+        Console.WriteLine($"\t                     Zip: {addressObject.mdAddressObj.GetZip()}");
+        Console.WriteLine($"\t            Result Codes: {dataContainer.ResultCodes}");
 
         String[] rs = dataContainer.ResultCodes.Split(',');
         foreach (String r in rs)
