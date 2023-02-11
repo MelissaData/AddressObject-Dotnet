@@ -1,8 +1,12 @@
-# Melissa Data Address Object Windows Net Sample
+# Melissa - Address Object Windows Dotnet
 
 ## Purpose
 
-This is a sample of the Melissa Data Address Object using C#
+This code showcases the Melissa Address Object using C#.
+
+Please feel free to copy or embed this code to your own project. Happy coding!
+
+For the latest Melissa Address Object release notes, please visit: https://releasenotes.melissa.com/on-premise-api/address-object/
 
 The console will ask the user for:
 
@@ -31,7 +35,7 @@ And return
 
 #### mdAddr.dll
 
-This is the c++ code of the Melissa Data Object
+This is the c++ code of the Melissa Object
 
 #### Data File(s)
 - Addr.dbf
@@ -102,7 +106,7 @@ The console will then prompt you with the following warning shown in the image b
 #### Download this project
 ```
 $ git clone https://github.com/MelissaData/AddressObject-Dotnet.git
-$ cd AddressObject-Dotnet
+$ cd AddressObject-Dotnet 
 ```
 
 #### Set up Melissa Updater
@@ -119,20 +123,20 @@ Melissa Updater is a CLI application allowing the user to update their Melissa a
     - It will handle all of the data download/path and dll(s) for you.
 2. If you already have the latest DQS Release (ZIP), you can find the data file(s) and dll(s) in there
     - Use the location of where you've copied/installed the data and update the "$DataPath" variable in the powershell script.
-    - Copy all the dll(s) mentioned above into the `MelissaDataAddressObjectWindowsNETSample` project folder.
+    - Copy all the dll(s) mentioned above into the `MelissaAddressObjectWindowsDotnet` project folder.
 
 ----------------------------------------
 
 #### Configure Target Framework
 
-Depending on your target .NET framework, you may need to configure the powershell script. In order to do this, open up the `MelissaDataAddressObjectWindowsNETSample.ps1` for editing, proceed to the bottom of the script where you will find this section of code.
+Depending on your target .NET framework, you may need to configure the powershell script. In order to do this, open up the `MelissaAddressObjectWindowsDotnet.ps1` for editing, proceed to the bottom of the script where you will find this section of code.
 
 Default set for .NET 7.0
 ```
-dotnet publish -f="net7.0" -c Release -o $BuildPath MelissaDataAddressObjectWindowsNETSample\MelissaDataAddressObjectWindowsNETSample.csproj
-#dotnet publish -f="net6.0" -c Release -o $BuildPath MelissaDataAddressObjectWindowsNETSample\MelissaDataAddressObjectWindowsNETSample.csproj
-#dotnet publish -f="net5.0" -c Release -o $BuildPath MelissaDataAddressObjectWindowsNETSample\MelissaDataAddressObjectWindowsNETSample.csproj
-#dotnet publish -f="netcoreapp3.1" -c Release -o $BuildPath MelissaDataAddressObjectWindowsNETSample\MelissaDataAddressObjectWindowsNETSample.csproj
+dotnet publish -f="net7.0" -c Release -o $BuildPath MelissaAddressObjectWindowsDotnet\MelissaAddressObjectWindowsDotnet.csproj
+#dotnet publish -f="net6.0" -c Release -o $BuildPath MelissaAddressObjectWindowsDotnet\MelissaAddressObjectWindowsDotnet.csproj
+#dotnet publish -f="net5.0" -c Release -o $BuildPath MelissaAddressObjectWindowsDotnet\MelissaAddressObjectWindowsDotnet.csproj
+#dotnet publish -f="netcoreapp3.1" -c Release -o $BuildPath MelissaAddressObjectWindowsDotnet\MelissaAddressObjectWindowsDotnet.csproj
 ```
 The target framework is specified with the -f flag found in the command line. If you wish to use any version besides .NET 7.0, please uncomment the line containing that framework and comment out the line containing the .NET 7.0 framework (# to comment).
 
@@ -145,7 +149,7 @@ Parameters:
 
     These are convenient when you want to get results for a specific address in one run instead of testing multiple addresses in interactive mode.
 
-- -license (optional): a license string to test the address object 
+- -license (optional): a license string to test the Address Object 
 - -quiet (optional): add to command if you do not want to get any console output from the Melissa Updater
 
 When you have modified the script to match your data location, let's run the script.
@@ -154,11 +158,11 @@ There are two modes:
     
     The script will prompt the user for an address, city, state, and zip, then use the provided inputs to test Address Object. For example:
     ```
-    $ .\MelissaDataAddressObjectWindowsNETSample.ps1
+    $ .\MelissaAddressObjectWindowsDotnet.ps1
     ```
     For quiet mode:
     ```
-    $ .\MelissaDataAddressObjectWindowsNETSample.ps1 -quiet
+    $ .\MelissaAddressObjectWindowsDotnet.ps1 -quiet
     ```
 
 - Command Line
@@ -167,20 +171,20 @@ There are two modes:
     
     With all parameters:
     ```
-    $ .\MelissaDataAddressObjectWindowsNETSample.ps1 -address "22382 Avenida Empresa" -city "Rancho Santa Margarita" -state "CA" -zip "92688"
-    $ .\MelissaDataAddressObjectWindowsNETSample.ps1 -address "22382 Avenida Empresa" -city "Rancho Santa Margarita" -state "CA" -zip "92688" -license "<your_license_string>"
+    $ .\MelissaAddressObjectWindowsDotnet.ps1 -address "22382 Avenida Empresa" -city "Rancho Santa Margarita" -state "CA" -zip "92688"
+    $ .\MelissaAddressObjectWindowsDotnet.ps1 -address "22382 Avenida Empresa" -city "Rancho Santa Margarita" -state "CA" -zip "92688" -license "<your_license_string>"
     ```
 
     With any known (optional) parameters:
     ```
-    $ .\MelissaDataAddressObjectWindowsNETSample.ps1 -address "22382 Avenida Empresa" -state "CA" 
-    $ .\MelissaDataAddressObjectWindowsNETSample.ps1 -address "22382 Avenida Empresa" -state "CA" -license "<your_license_string>"
+    $ .\MelissaAddressObjectWindowsDotnet.ps1 -address "22382 Avenida Empresa" -state "CA" 
+    $ .\MelissaAddressObjectWindowsDotnet.ps1 -address "22382 Avenida Empresa" -state "CA" -license "<your_license_string>"
     ```
 
     For quiet mode:
     ```
-    $ .\MelissaDataAddressObjectWindowsNETSample.ps1 -address "22382 Avenida Empresa" -city "Rancho Santa Margarita" -state "CA" -zip "92688" -quiet
-    $ .\MelissaDataAddressObjectWindowsNETSample.ps1 -address "22382 Avenida Empresa" -city "Rancho Santa Margarita" -state "CA" -zip "92688" -license "<your_license_string>" -quiet
+    $ .\MelissaAddressObjectWindowsDotnet.ps1 -address "22382 Avenida Empresa" -city "Rancho Santa Margarita" -state "CA" -zip "92688" -quiet
+    $ .\MelissaAddressObjectWindowsDotnet.ps1 -address "22382 Avenida Empresa" -city "Rancho Santa Margarita" -state "CA" -zip "92688" -license "<your_license_string>" -quiet
 
 This is the expected outcome of a successful setup for interactive mode:
 
@@ -188,7 +192,7 @@ This is the expected outcome of a successful setup for interactive mode:
 
 ## Troubleshooting
 
-Troubleshooting for errors found while running your sample program.
+Troubleshooting for errors found while running your program.
 
 ### C# Errors:
 
@@ -201,8 +205,6 @@ Troubleshooting for errors found while running your sample program.
 
 ## Contact Us
 
-For free technical support, please call us at 800-MELISSA ext. 4
-(800-635-4772 ext. 4) or email us at tech@MelissaData.com.
+For free technical support, please call us at 800-MELISSA ext. 4 (800-635-4772 ext. 4) or email us at tech@melissa.com.
 
-To purchase this product, contact Melissa Data sales department at
-800-MELISSA ext. 3 (800-635-4772 ext. 3).
+To purchase this product, contact the Melissa sales department at 800-MELISSA ext. 3 (800-635-4772 ext. 3).

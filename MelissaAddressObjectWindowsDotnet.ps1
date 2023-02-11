@@ -1,5 +1,5 @@
-﻿# Name:    MelissaDataAddressObjectWindowsNET
-# Purpose: Use the MelissaUpdater to make the MelissaDataAddressObjectWindowsNET sample usable
+﻿# Name:    MelissaAddressObjectWindowsDotnet
+# Purpose: Use the MelissaUpdater to make the MelissaAddressObjectWindowsDotnet code usable
 
 ######################### Parameters ##########################
 
@@ -32,7 +32,7 @@ $ProductName = "DQ_ADDR_DATA"
 # Modify this if you want to use 
 $CurrentPath = $PSScriptRoot
 Set-Location $CurrentPath
-$ProjectPath = "$CurrentPath\MelissaDataAddressObjectWindowsNETSample"
+$ProjectPath = "$CurrentPath\MelissaAddressObjectWindowsDotnet"
 $DataPath = "$ProjectPath\Data"
 $BuildPath = "$ProjectPath\Build"
 
@@ -116,7 +116,7 @@ function CheckDLLs() {
 
 ########################## Main ############################
 
-Write-Host "`n=============== Sample of Melissa Data Address Object ===============`n                    [ .NET | Windows | 64BIT ]`n"
+Write-Host "`n====================== Melissa Address Object =====================`n                    [ .NET | Windows | 64BIT ]`n"
 
 # Get license (either from parameters or user input)
 if ([string]::IsNullOrEmpty($license) ) {
@@ -154,21 +154,21 @@ if (!$DLLsAreDownloaded) {
 
 Write-Host "All file(s) have been downloaded/updated!"
 
-# Start sample
+# Start program
 # Build project
 Write-Host "`n=========================== BUILD PROJECT =========================="
 
 # Target frameworks net7.0, net6.0, net5.0, netcoreapp3.1
 # Please comment out the version that you don't want to use and uncomment the one that you do want to use
-dotnet publish -f="net7.0" -c Release -o $BuildPath MelissaDataAddressObjectWindowsNETSample\MelissaDataAddressObjectWindowsNETSample.csproj
-#dotnet publish -f="net6.0" -c Release -o $BuildPath MelissaDataAddressObjectWindowsNETSample\MelissaDataAddressObjectWindowsNETSample.csproj
-#dotnet publish -f="net5.0" -c Release -o $BuildPath MelissaDataAddressObjectWindowsNETSample\MelissaDataAddressObjectWindowsNETSample.csproj
-#dotnet publish -f="netcoreapp3.1" -c Release -o $BuildPath MelissaDataAddressObjectWindowsNETSample\MelissaDataAddressObjectWindowsNETSample.csproj
+dotnet publish -f="net7.0" -c Release -o $BuildPath MelissaAddressObjectWindowsDotnet\MelissaAddressObjectWindowsDotnet.csproj
+#dotnet publish -f="net6.0" -c Release -o $BuildPath MelissaAddressObjectWindowsDotnet\MelissaAddressObjectWindowsDotnet.csproj
+#dotnet publish -f="net5.0" -c Release -o $BuildPath MelissaAddressObjectWindowsDotnet\MelissaAddressObjectWindowsDotnet.csproj
+#dotnet publish -f="netcoreapp3.1" -c Release -o $BuildPath MelissaAddressObjectWindowsDotnet\MelissaAddressObjectWindowsDotnet.csproj
 
 # Run Project
 if ([string]::IsNullOrEmpty($address) -and [string]::IsNullOrEmpty($city) -and [string]::IsNullOrEmpty($state) -and [string]::IsNullOrEmpty($zip)){
-	dotnet $BuildPath\MelissaDataAddressObjectWindowsNETSample.dll --license $License --dataPath $DataPath
+	dotnet $BuildPath\MelissaAddressObjectWindowsDotnet.dll --license $License --dataPath $DataPath
 }
 else {
-    dotnet $BuildPath\MelissaDataAddressObjectWindowsNETSample.dll --license $License --dataPath $DataPath --address $address --city $city --state $state --zip $zip
+    dotnet $BuildPath\MelissaAddressObjectWindowsDotnet.dll --license $License --dataPath $DataPath --address $address --city $city --state $state --zip $zip
 }
