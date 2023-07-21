@@ -27,8 +27,7 @@ And return
 
 ## Tested Environments
 
-- Windows 64-bit .NET 7.0, .NET 6.0, .NET 5.0, .NET Core 3.1
-- Powershell 5.1
+- Windows 10 64-bit .NET 7.0, Powershell 5.1
 - Melissa data files for 2023-06
 
 ## Required File(s) and Programs
