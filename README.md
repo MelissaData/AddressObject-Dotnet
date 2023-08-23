@@ -26,7 +26,7 @@ And return
 
 ## Tested Environments
 - Windows 10 64-bit .NET 7.0, Powershell 5.1
-- Melissa data files for 2023-07
+- Melissa data files for 2023-08
 
 ## Required File(s) and Programs
 
@@ -99,7 +99,7 @@ The console will then prompt you with the following warning shown in the image b
 #### Download this project
 ```
 $ git clone https://github.com/MelissaData/AddressObject-Dotnet
-$ cd AddressObject-Dotnet 
+$ cd AddressObject-Dotnet
 ```
 
 #### Set up Melissa Updater
