@@ -1,4 +1,4 @@
-# Name:    MelissaAddressObjectWindowsDotnet
+﻿# Name:    MelissaAddressObjectWindowsDotnet
 # Purpose: Use the MelissaUpdater to make the MelissaAddressObjectWindowsDotnet code usable
 
 ######################### Parameters ##########################
@@ -25,22 +25,22 @@ class FileConfig {
 
 ######################### Config ###########################
 
-$RELEASE_VERSION = '2024.02'
+$RELEASE_VERSION = '2024.03'
 $ProductName = "DQ_ADDR_DATA"
 
 # Uses the location of the .ps1 file 
-# Modify this if you want to use 
 $CurrentPath = $PSScriptRoot
 Set-Location $CurrentPath
 $ProjectPath = "$CurrentPath\MelissaAddressObjectWindowsDotnet"
-$DataPath = "$ProjectPath\Data"
-$BuildPath = "$ProjectPath\Build"
 
-If (!(Test-Path $DataPath)) {
-  New-Item -Path $ProjectPath -Name 'Data' -ItemType "directory"
-}
+$BuildPath = "$ProjectPath\Build"
 If (!(Test-Path $BuildPath)) {
   New-Item -Path $ProjectPath -Name 'Build' -ItemType "directory"
+}
+
+$DataPath = "$ProjectPath\Data" # To use your own data file(s), change to your DQS release data file(s) directory
+If (!(Test-Path $DataPath) -and ($DataPath -eq "$ProjectPath\Data")) {
+  New-Item -Path $ProjectPath -Name 'Data' -ItemType "directory"
 }
 
 $DLLs = @(
@@ -89,18 +89,18 @@ function DownloadDLLs() {
     # Check for quiet mode
     if ($quiet) {
       .\MelissaUpdater\MelissaUpdater.exe file --filename $DLL.FileName --release_version $DLL.ReleaseVersion --license $LICENSE --os $DLL.OS --compiler $DLL.Compiler --architecture $DLL.Architecture --type $DLL.Type --target_directory $BuildPath > $null
-	  if ($? -eq $false) {
+    if ($? -eq $false) {
         Write-Host "`nCannot run Melissa Updater. Please check your license string!"
-		exit
-	  }
-	}
+    exit
+    }
+  }
     else {
       .\MelissaUpdater\MelissaUpdater.exe file --filename $DLL.FileName --release_version $DLL.ReleaseVersion --license $LICENSE --os $DLL.OS --compiler $DLL.Compiler --architecture $DLL.Architecture --type $DLL.Type --target_directory $BuildPath 
       if ($? -eq $false) {
         Write-Host "`nCannot run Melissa Updater. Please check your license string!"
-		exit
-	  }
-	}
+    exit
+    }
+  }
     
     Write-Host "Melissa Updater finished downloading " $DLL.FileName "!"
     $DLLProg++
@@ -156,7 +156,7 @@ if ([string]::IsNullOrEmpty($license) ) {
 
 # Check for License from Environment Variables 
 if ([string]::IsNullOrEmpty($License) ) {
-  $License = $env:MD_LICENSE # Get-ChildItem -Path Env:\MD_LICENSE   #[System.Environment]::GetEnvironmentVariable('MD_LICENSE')
+  $License = $env:MD_LICENSE 
 }
 
 if ([string]::IsNullOrEmpty($License)) {
@@ -166,10 +166,7 @@ if ([string]::IsNullOrEmpty($License)) {
 
 # Use Melissa Updater to download data file(s) 
 # Download data file(s) 
-DownloadDataFiles -license $License     # comment out this line if using DQS Release
-
-# Set data file(s) path
-#$DataPath = "C:\\Program Files\\Melissa DATA\\DQT\\Data"			# uncomment this line and change to your DQS Release data file(s) directory
+DownloadDataFiles -license $License # Comment out this line if using own DQS release
 
 # Download dll(s)
 DownloadDlls - license $License
@@ -181,7 +178,7 @@ DownloadWrapper -license $License
 $DllsAreDownloaded = CheckDLLs
 
 if (!$DLLsAreDownloaded) {
-	Write-Host "`nAborting program, see above.  Press any button to exit."
+  Write-Host "`nAborting program, see above.  Press any button to exit."
   $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
   exit
 }
@@ -196,8 +193,8 @@ dotnet publish -f="net7.0" -c Release -o $BuildPath MelissaAddressObjectWindowsD
 
 # Run Project
 if ([string]::IsNullOrEmpty($address) -and [string]::IsNullOrEmpty($city) -and [string]::IsNullOrEmpty($state) -and [string]::IsNullOrEmpty($zip)){
-	dotnet $BuildPath\MelissaAddressObjectWindowsDotnet.dll --license $License --dataPath $DataPath
+  dotnet $BuildPath\MelissaAddressObjectWindowsDotnet.dll --license $License --dataPath $DataPath
 }
 else {
-    dotnet $BuildPath\MelissaAddressObjectWindowsDotnet.dll --license $License --dataPath $DataPath --address $address --city $city --state $state --zip $zip
+  dotnet $BuildPath\MelissaAddressObjectWindowsDotnet.dll --license $License --dataPath $DataPath --address $address --city $city --state $state --zip $zip
 }
