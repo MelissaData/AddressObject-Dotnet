@@ -28,7 +28,7 @@ And return
 
 ## Tested Environments
 - Windows 10 64-bit .NET 7.0, Powershell 5.1
-- Melissa data files for 2024-09
+- Melissa data files for 2024-10
 
 ## Required File(s) and Programs
 
@@ -100,8 +100,8 @@ The console will then prompt you with the following warning shown in the image b
 
 #### Download this project
 ```
-$ git clone https://github.com/MelissaData/AddressObject-Dotnet
-$ cd AddressObject-Dotnet
+git clone https://github.com/MelissaData/AddressObject-Dotnet
+cd AddressObject-Dotnet
 ```
 
 #### Set up Melissa Updater
@@ -139,11 +139,11 @@ There are two modes:
     
     The script will prompt the user for an address, city, state, and zip, then use the provided inputs to test Address Object. For example:
     ```
-    $ .\MelissaAddressObjectWindowsDotnet.ps1
+    .\MelissaAddressObjectWindowsDotnet.ps1
     ```
     For quiet mode:
     ```
-    $ .\MelissaAddressObjectWindowsDotnet.ps1 -quiet
+    .\MelissaAddressObjectWindowsDotnet.ps1 -quiet
     ```
 
 - Command Line
@@ -152,20 +152,20 @@ There are two modes:
     
     With all parameters:
     ```
-    $ .\MelissaAddressObjectWindowsDotnet.ps1 -address "22382 Avenida Empresa" -city "Rancho Santa Margarita" -state "CA" -zip "92688"
-    $ .\MelissaAddressObjectWindowsDotnet.ps1 -address "22382 Avenida Empresa" -city "Rancho Santa Margarita" -state "CA" -zip "92688" -license "<your_license_string>"
+    .\MelissaAddressObjectWindowsDotnet.ps1 -address "22382 Avenida Empresa" -city "Rancho Santa Margarita" -state "CA" -zip "92688"
+    .\MelissaAddressObjectWindowsDotnet.ps1 -address "22382 Avenida Empresa" -city "Rancho Santa Margarita" -state "CA" -zip "92688" -license "<your_license_string>"
     ```
 
     With any known (optional) parameters:
     ```
-    $ .\MelissaAddressObjectWindowsDotnet.ps1 -address "22382 Avenida Empresa" -state "CA" 
-    $ .\MelissaAddressObjectWindowsDotnet.ps1 -address "22382 Avenida Empresa" -state "CA" -license "<your_license_string>"
+    .\MelissaAddressObjectWindowsDotnet.ps1 -address "22382 Avenida Empresa" -state "CA" 
+    .\MelissaAddressObjectWindowsDotnet.ps1 -address "22382 Avenida Empresa" -state "CA" -license "<your_license_string>"
     ```
 
     For quiet mode:
     ```
-    $ .\MelissaAddressObjectWindowsDotnet.ps1 -address "22382 Avenida Empresa" -city "Rancho Santa Margarita" -state "CA" -zip "92688" -quiet
-    $ .\MelissaAddressObjectWindowsDotnet.ps1 -address "22382 Avenida Empresa" -city "Rancho Santa Margarita" -state "CA" -zip "92688" -license "<your_license_string>" -quiet
+    .\MelissaAddressObjectWindowsDotnet.ps1 -address "22382 Avenida Empresa" -city "Rancho Santa Margarita" -state "CA" -zip "92688" -quiet
+    .\MelissaAddressObjectWindowsDotnet.ps1 -address "22382 Avenida Empresa" -city "Rancho Santa Margarita" -state "CA" -zip "92688" -license "<your_license_string>" -quiet
 
 This is the expected outcome of a successful setup for interactive mode:
 
