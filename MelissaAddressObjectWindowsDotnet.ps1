@@ -26,7 +26,7 @@ class FileConfig {
 
 ######################### Config ###########################
 
-$RELEASE_VERSION = '2025.05'
+$RELEASE_VERSION = '2025.06'
 $ProductName = "DQ_ADDR_DATA"
 
 # Uses the location of the .ps1 file 
@@ -216,7 +216,7 @@ Write-Host "All file(s) have been downloaded/updated!"
 # Build project
 Write-Host "`n========================== BUILD PROJECT =========================="
 
-dotnet publish -f="net7.0" -c Release -o $BuildPath MelissaAddressObjectWindowsDotnet\MelissaAddressObjectWindowsDotnet.csproj
+dotnet publish -f="net8.0" -c Release -o $BuildPath MelissaAddressObjectWindowsDotnet\MelissaAddressObjectWindowsDotnet.csproj
 
 # Run Project
 if ([string]::IsNullOrEmpty($address) -and [string]::IsNullOrEmpty($city) -and [string]::IsNullOrEmpty($state) -and [string]::IsNullOrEmpty($zip)){
